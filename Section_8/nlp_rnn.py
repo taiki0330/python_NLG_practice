@@ -108,3 +108,4 @@ plt.plot(np.arange(len(loss)), loss)
 plt.show()
 
 
+

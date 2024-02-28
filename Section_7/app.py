@@ -82,32 +82,32 @@ for p in model.dv.most_similar(0):
     print(wagahai_words[p[0]])
 
 
-x = np.linspace(-np.pi,np.pi).reshape(-1, 1)
-t = np.sin(x)
-plt.plot(x, t)
-# plt.show()
+# x = np.linspace(-np.pi,np.pi).reshape(-1, 1)
+# t = np.sin(x)
+# plt.plot(x, t)
+# # plt.show()
 
-batch_size = 8  # バッチサイズ
-n_in = 1  # 入力層のニューロン数
-n_mid = 20  # 中間層のニューロン数
-n_out = 1  # 出力層のニューロン数
+# batch_size = 8  # バッチサイズ
+# n_in = 1  # 入力層のニューロン数
+# n_mid = 20  # 中間層のニューロン数
+# n_out = 1  # 出力層のニューロン数
 
-# 入力層、中間層、出力層の３層のニューラルネットワークを構築
-model = Sequential()
-model.add(Dense(n_mid, input_shape=(n_in,), activation="sigmoid"))  # 活性化関数にシグモイド関数
-model.add(Dense(n_out, activation="linear"))  # 活性化関数に恒等関数
-model.compile(loss="mean_squared_error", optimizer="sgd")  # 損失関数に二乗誤差、最適化アルゴリズムにSGDを使用してコンパイル
-print(model.summary())
+# # 入力層、中間層、出力層の３層のニューラルネットワークを構築
+# model = Sequential()
+# model.add(Dense(n_mid, input_shape=(n_in,), activation="sigmoid"))  # 活性化関数にシグモイド関数
+# model.add(Dense(n_out, activation="linear"))  # 活性化関数に恒等関数
+# model.compile(loss="mean_squared_error", optimizer="sgd")  # 損失関数に二乗誤差、最適化アルゴリズムにSGDを使用してコンパイル
+# print(model.summary())
 
-history = model.fit(x, t, batch_size=batch_size, epochs=2000, validation_split=0.1)
+# history = model.fit(x, t, batch_size=batch_size, epochs=2000, validation_split=0.1)
 
-loss = history.history['loss']
-vloss = history.history['val_loss']
+# loss = history.history['loss']
+# vloss = history.history['val_loss']
 
-plt.plot(np.arange(len(loss)), loss)
-plt.plot(np.arange(len(vloss)), vloss)
-# plt.show()
+# plt.plot(np.arange(len(loss)), loss)
+# plt.plot(np.arange(len(vloss)), vloss)
+# # plt.show()
 
-plt.plot(x, model.predict(x))
-plt.plot(x, t)
-# plt.show()
+# plt.plot(x, model.predict(x))
+# plt.plot(x, t)
+# # plt.show()
